@@ -21,7 +21,7 @@ public class ScriptableObjectUltilWindow : EditorWindow, IHasCustomMenu
     [SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
 
-    [MenuItem("Window/UI Toolkit/ScriptableObjectUltilWindow")]
+    [MenuItem("Window/Scriptable Object Utlity")]
     public static void ShowExample()
     {
         ScriptableObjectUltilWindow wnd = GetWindow<ScriptableObjectUltilWindow>();
