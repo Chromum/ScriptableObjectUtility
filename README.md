@@ -5,7 +5,7 @@
 
 1. **Add the Attribute to a Scriptable Object:**
    - Create a new Scriptable Object or open an existing one.
-   - Add the `[ScriptableObjectAttribute(path)]` attribute to the Scriptable Object class. The `path` parameter specifies where the Scriptable Object will appear in the Unity Editor window.
+   - Add the `[ScriptableObjectAttribute(path)]` attribute to the Scriptable Object class. The `path` parameter specifies where the Scriptable Object will appear in the Editor Window.
      ```csharp
      [ScriptableObjectAttribute("Your/Path/Here")]
      public class YourScriptableObject : ScriptableObject
