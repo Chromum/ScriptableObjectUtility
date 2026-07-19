@@ -1,6 +1,26 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="../USS/ScriptableObjectUtilityWindow.uss" />
-    <ui:Label text="Scriptable Object Utility" class="custom-label" />
-    <uie:ToolbarSearchField name="so-search-field" />
-    <ui:Foldout text="Scriptable Objects" name="foldouts-root" />
+    <ui:VisualElement name="top-pane" style="flex-grow: 1; min-height: 100px;">
+        <ui:VisualElement class="so-panel-header">
+            <ui:Label text="Scriptable Object Utility" class="so-panel-header-title so-main-title" />
+        </ui:VisualElement>
+        <uie:Toolbar class="so-search-toolbar">
+            <uie:ToolbarSearchField name="so-search-field" />
+        </uie:Toolbar>
+        <ui:VisualElement name="asset-browser-header" class="so-panel-header so-panel-header-row" style="display: none;">
+            <ui:Button name="back-button" text="← Back" />
+            <ui:Label name="asset-browser-title" class="so-panel-header-title" />
+        </ui:VisualElement>
+        <ui:ScrollView name="tree-scroll-view" style="flex-grow: 1;">
+            <ui:Foldout text="Scriptable Objects" name="foldouts-root" />
+        </ui:ScrollView>
+        <ui:ScrollView name="asset-list-scroll-view" style="flex-grow: 1; display: none;">
+            <ui:VisualElement name="asset-list-container" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+    <ui:VisualElement name="bottom-pane" style="flex-grow: 1; min-height: 80px;">
+        <ui:Label text="Preview" class="so-panel-header so-panel-header-title" style="font-size: 14px; margin-top: 0; margin-right: -6px; margin-bottom: 6px; margin-left: -6px; padding-top: 6px; padding-bottom: 6px; padding-left: 10px; padding-right: 2px;" />
+        <ui:ScrollView name="inspector-scroll-view" style="flex-grow: 1;">
+            <ui:VisualElement name="inspector-container" />
+        </ui:ScrollView>
+    </ui:VisualElement>
 </ui:UXML>

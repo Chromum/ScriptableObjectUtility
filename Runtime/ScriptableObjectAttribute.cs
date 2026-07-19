@@ -1,6 +1,6 @@
 using System;
 
-namespace Bonejam.ScriptableObjectUtility
+namespace Chromum.ScriptableObjectUtility
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class ScriptableObjectAttribute : Attribute

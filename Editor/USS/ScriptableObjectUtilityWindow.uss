@@ -1,11 +1,138 @@
-.custom-label {
-    font-size: 20px;
+#top-pane, #bottom-pane {
+    padding: 4px 6px 6px 6px;
+}
+
+#tree-scroll-view, #asset-list-scroll-view, #inspector-scroll-view {
+    min-height: 0;
+}
+
+.so-panel-header {
+    padding: 4px 6px;
+    margin-bottom: 6px;
+    background-color: rgb(48, 48, 48);
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(24, 24, 24);
+    flex-shrink: 0;
+}
+
+.so-panel-header-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.so-panel-header-title {
     -unity-font-style: bold;
-    color: rgb(68, 138, 255);
-    align-self: center;
-    margin-bottom: 4px;
+    font-size: 13px;
+    color: rgb(210, 210, 210);
+    -unity-text-align: middle-left;
+}
+
+Label.so-main-title {
+    font-size: 19px;
+    color: rgb(102, 178, 255);
+    padding: 3px 0;
+    margin-top: 13px;
+    -unity-text-align: middle-left;
+}
+
+#asset-browser-title {
+    margin-left: 8px;
+}
+
+#back-button {
+    border-radius: 3px;
+}
+
+.so-search-toolbar {
+    height: 28px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    flex-shrink: 0;
 }
 
 #so-search-field {
-    margin-bottom: 6px;
+    flex-grow: 1;
+    margin: 2px 4px;
 }
+
+.so-foldout {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.so-foldout > .unity-foldout__content {
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 7px;
+    border-left-width: 2px;
+    border-left-color: rgb(80, 80, 80);
+}
+
+.so-button-row {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.so-row-button {
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(28, 28, 28);
+    background-color: rgb(70, 70, 70);
+    -unity-text-align: middle-left;
+    padding-left: 8px;
+}
+
+.so-row-button:hover {
+    background-color: rgb(90, 90, 90);
+    border-color: rgb(110, 160, 255);
+}
+
+.so-icon-button {
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    padding: 0;
+    background-size: 14px 14px;
+    background-position: center;
+    border-width: 1px;
+    border-color: rgb(28, 28, 28);
+    border-radius: 4px;
+    background-color: rgb(70, 70, 70);
+}
+
+.so-icon-button:hover {
+    background-color: rgb(95, 95, 95);
+    border-color: rgb(110, 160, 255);
+}
+
+.so-icon-button-leading {
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+.so-asset-row {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(28, 28, 28);
+    background-color: rgb(60, 60, 60);
+}
+
+.so-asset-row-alt {
+    background-color: rgb(53, 53, 53);
+}
+
+.so-empty-label {
+    -unity-font-style: italic;
+    opacity: 0.6;
+    -unity-text-align: middle-center;
+    margin-top: 14px;
+    white-space: normal;
+}
+

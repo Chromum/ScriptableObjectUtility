@@ -3,22 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEngine;
 
-namespace Bonejam.ScriptableObjectUtility.Editor
+namespace Chromum.ScriptableObjectUtility.Editor
 {
     internal static class TypeDiscovery
     {
         public const string GlobalGroupName = "Global";
         static readonly char[] PathDelimiters = { '/', '\\' };
 
+        static readonly HashSet<string> DenylistedBaseTypeFullNames = new HashSet<string>
+        {
+            "UnityEngine.Rendering.Universal.ScriptableRendererFeature",
+            "UnityEngine.Rendering.VolumeComponent",
+            "UnityEditor.AssetImporters.ScriptedImporter",
+            "UnityEditor.Experimental.AssetImporters.ScriptedImporter",
+            "UnityEditor.AssetImporter",
+        };
+
         public static IEnumerable<Type> DiscoverScriptableObjectTypes()
+        {
+            var includedAssemblyNames = new HashSet<string>(
+                CompilationPipeline.GetAssemblies(AssembliesType.Editor)
+                    .Where(AssemblyFilterSettings.IsIncluded)
+                    .Select(a => a.name));
+
+            return GetAllEligibleTypes()
+                .Where(t => (includedAssemblyNames.Contains(t.Assembly.GetName().Name)
+                        || AssemblyFilterSettings.IsTypeExplicitlyIncluded(t))
+                    && !HiddenTypesSettings.IsHidden(t));
+        }
+
+        public static IEnumerable<Type> GetAllEligibleTypes()
         {
             return TypeCache.GetTypesDerivedFrom<ScriptableObject>()
                 .Where(t => !t.IsAbstract
                     && !t.IsGenericTypeDefinition
                     && !typeof(UnityEditor.Editor).IsAssignableFrom(t)
-                    && !typeof(EditorWindow).IsAssignableFrom(t));
+                    && !typeof(EditorWindow).IsAssignableFrom(t)
+                    && !InheritsFromDenylistedBase(t));
+        }
+
+        static bool InheritsFromDenylistedBase(Type type)
+        {
+            for (var baseType = type.BaseType; baseType != null; baseType = baseType.BaseType)
+            {
+                if (DenylistedBaseTypeFullNames.Contains(baseType.FullName))
+                    return true;
+            }
+
+            return false;
         }
 
         public static string[] ResolveGroupPath(Type type, out string displayName)
@@ -31,8 +66,6 @@ namespace Bonejam.ScriptableObjectUtility.Editor
 
                 if (segments.Length == 1)
                 {
-                    // A single segment has nothing left over to act as a folder + a label,
-                    // so treat it as the group name and keep the default type-name label.
                     displayName = type.Name;
                     return segments;
                 }

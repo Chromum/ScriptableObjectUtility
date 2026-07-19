@@ -1,6 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="flex-direction: row; align-items: center;">
-        <ui:Image name="typeIcon" style="width: 16px; height: 16px; margin-right: 4px;" />
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="namedBttn" style="height: 22px; flex-grow: 1; flex-shrink: 1; flex-basis: auto;" />
+    <ui:VisualElement class="so-button-row" style="flex-direction: row; align-items: center;">
+        <ui:Button name="optionsBttn" text="⋮" class="so-icon-button so-icon-button-leading" style="-unity-font-style: bold;" />
+        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="namedBttn" class="so-row-button" style="height: 22px; flex-grow: 1; flex-shrink: 1; flex-basis: auto;" />
+        <ui:Button name="editScriptBttn" class="so-icon-button" />
+        <ui:Button name="showAssetsBttn" class="so-icon-button" />
     </ui:VisualElement>
 </ui:UXML>
