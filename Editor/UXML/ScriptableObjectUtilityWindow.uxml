@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="../USS/ScriptableObjectUtilityWindow.uss" />
+    <ui:Label text="Scriptable Object Utility" class="custom-label" />
+    <uie:ToolbarSearchField name="so-search-field" />
+    <ui:Foldout text="Scriptable Objects" name="foldouts-root" />
+</ui:UXML>

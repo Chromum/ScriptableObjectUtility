@@ -1,0 +1,18 @@
+{
+  "name": "com.chromum.scriptable-object-utility",
+  "displayName": "Scriptable Object Utility",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Editor window that auto-discovers ScriptableObject types (optionally grouped/renamed via an attribute) and lets you create new asset instances in one click, with search, undo support, and persisted foldout state.",
+  "keywords": [
+    "scriptableobject",
+    "editor",
+    "tooling",
+    "asset creation"
+  ],
+  "author": {
+    "name": "Chromum"
+  },
+  "license": "MIT",
+  "type": "tool"
+}

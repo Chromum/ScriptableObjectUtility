@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-direction: row; align-items: center;">
+        <ui:Image name="typeIcon" style="width: 16px; height: 16px; margin-right: 4px;" />
+        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="namedBttn" style="height: 22px; flex-grow: 1; flex-shrink: 1; flex-basis: auto;" />
+    </ui:VisualElement>
+</ui:UXML>
