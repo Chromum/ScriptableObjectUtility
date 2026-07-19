@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.0.1
+
+1. **Repo Cleanup:**
+   - Removed stray `.meta` files that had been generated for `README.md`, `CHANGELOG.md`, and `UPGRADING.md` and accidentally committed.
+   - Added a `.gitignore` entry (`*.md.meta`) so they don't get re-added if Unity regenerates them locally.
+
 ## v2.0.0
 
 1. **No More Required Attribute:**
